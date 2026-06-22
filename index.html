@@ -173,6 +173,41 @@
             .post { padding: 1.5rem; }
             .post-title { font-size: 1.7rem; }
         }
+
+        /* Formulário de Adição de Livro */
+        .book-form {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(74,55,40,0.03);
+            margin-bottom: 2rem;
+        }
+
+        .book-form label { display: block; font-weight: 600; margin: 0.6rem 0 0.3rem; color: var(--primary-color); }
+        .book-form input[type="text"], .book-form input[type="date"], .book-form select, .book-form textarea {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #e9e2db;
+            background: #fbf9f6;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .book-form button {
+            margin-top: 0.8rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.65rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .book-list { display: flex; flex-direction: column; gap: 1rem; }
+
     </style>
 </head>
 <body>
@@ -183,50 +218,51 @@
     </header>
 
     <div class="container">
+        <!-- Formulário para adicionar novos livros -->
+        <section class="book-form" aria-label="Adicionar livro">
+            <form id="book-form">
+                <label for="title">Título</label>
+                <input type="text" id="title" name="title" required placeholder="Ex.: O Morro dos Ventos Uivantes">
+
+                <label for="author">Autor</label>
+                <input type="text" id="author" name="author" required placeholder="Ex.: Emily Brontë">
+
+                <label for="date">Data de leitura</label>
+                <input type="text" id="date" name="date" placeholder="Ex.: Maio de 2026">
+
+                <label for="rating">Avaliação</label>
+                <select id="rating" name="rating">
+                    <option value="">-- selecione --</option>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="1">★☆☆☆☆</option>
+                </select>
+
+                <label for="review">Resenha (opcional)</label>
+                <textarea id="review" name="review" rows="4" placeholder="Escreva uma breve resenha..."></textarea>
+
+                <button type="submit">Adicionar livro</button>
+            </form>
+        </section>
+
+        <!-- Lista de livros adicionados pelo usuário -->
+        <section>
+            <h2 style="margin-bottom:0.6rem;">Meus livros</h2>
+            <div id="user-books" class="book-list" aria-live="polite"></div>
+        </section>
+
         <main class="feed">
-
-            <article class="post">
-                <h2 class="post-title">O Hobbit</h2>
-                <div class="post-meta">Por J.R.R. Tolkien &bull; Lido em Janeiro de 2026</div>
-                
-                <div class="rating-container">
-                    <span class="rating-label">Avaliação:</span>
-                    <span class="stars">★★★★★</span>
-                </div>
-
-                <div class="post-content">
-                    <p>
-                        Uma aventura fantástica e leve que introduz o leitor ao incrível universo da Terra-Média. 
-                        A jornada de Bilbo Bolseiro junto com os anões é cheia de perigos, humor e crescimento pessoal. 
-                        A escrita é extremamente envolvendo e visual. Um clássico indispensável para qualquer idade!
-                    </p>
-                </div>
-            </article>
-
-            <article class="post">
-                <h2 class="post-title">Corte de Espinhos e Rosas</h2>
-                <div class="post-meta">Por Sarah J. Maas &bull; Lido em Março de 2026</div>
-                
-                <div class="rating-container">
-                    <span class="rating-label">Avaliação:</span>
-                    <span class="stars">★★★★☆</span>
-                </div>
-
-                <div class="post-content">
-                    <p>
-                        Uma releitura dark de A Bela e a Fera que te prende do início ao fim. O universo de Prythian é 
-                        muito bem construído e os personagens são cativantes, embora o ritmo no começo seja um pouco lento. 
-                        O final compensa tudo e te deixa doido para ler a continuação.
-                    </p>
-                </div>
-            </article>
-
+            <!-- Posts estáticos removidos. Use o formulário acima para adicionar seus livros. -->
         </main>
     </div>
 
     <footer>
         <p>&copy; 2026 Meu Blog de Livros. Criado com HTML e CSS no VSCode.</p>
     </footer>
+
+    <script src="main.js"></script>
 
 </body>
 </html>
