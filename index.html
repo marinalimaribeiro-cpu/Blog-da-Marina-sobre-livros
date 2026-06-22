@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog de Livros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis de Cores para facilitar customização */
+        :root {
+            --bg-color: #fcfaf7;
+            --card-bg: #ffffff;
+            --primary-color: #4a3728; /* Tom marrom aconchegante */
+            --accent-color: #8b5a2b;
+            --text-color: #2c2520;
+            --text-light: #7a6e67;
+            --star-color: #ffb400;
+            --shadow: 0 10px 30px rgba(74, 55, 40, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        /* Configurações Gerais */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        /* Cabeçalho Premium */
+        header {
+            background: linear-gradient(135deg, #4a3728 0%, #2c1e15 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(-45deg, var(--bg-color) 8px, transparent 0), linear-gradient(45deg, var(--bg-color) 8px, transparent 0);
+            background-size: 15px 30px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            margin: 0.8rem 0 0 0;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #dfd5cd;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 850px;
+            margin: -2rem auto 4rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Grid / Layout dos Cards */
+        .feed {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* Cartão de Resenha Elegante */
+        .post {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(74, 55, 40, 0.03);
+            transition: var(--transition);
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(74, 55, 40, 0.1);
+        }
+
+        /* Detalhes do Post */
+        .post-title {
+            font-family: 'Lora', serif;
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .post-meta {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            font-weight: 600;
+            border-bottom: 1px solid #f0eae4;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Container de Avaliação */
+        .rating-container {
+            display: inline-flex;
+            align-items: center;
+            background: #fcf8f5;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #f2e9e1;
+        }
+
+        .rating-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .stars {
+            color: var(--star-color);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        /* Conteúdo da Resenha */
+        .post-content {
+            font-family: 'Lora', serif;
+            font-size: 1.15rem;
+            color: #3d3530;
+            text-align: justify;
+        }
+
+        .post-content p {
+            margin: 0 0 1rem 0;
+        }
+
+        .post-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Rodapé clean */
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: #2c1e15;
+            color: #a8998f;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade Básica */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
+            .post { padding: 1.5rem; }
+            .post-title { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📚 Meu Cantinho Literário</h1>
+        <p>Resenhas sinceras, xícaras de café e próximas leituras.</p>
+    </header>
+
+    <div class="container">
+        <main class="feed">
+
+            <article class="post">
+                <h2 class="post-title">O Hobbit</h2>
+                <div class="post-meta">Por J.R.R. Tolkien &bull; Lido em Janeiro de 2026</div>
+                
+                <div class="rating-container">
+                    <span class="rating-label">Avaliação:</span>
+                    <span class="stars">★★★★★</span>
+                </div>
+
+                <div class="post-content">
+                    <p>
+                        Uma aventura fantástica e leve que introduz o leitor ao incrível universo da Terra-Média. 
+                        A jornada de Bilbo Bolseiro junto com os anões é cheia de perigos, humor e crescimento pessoal. 
+                        A escrita é extremamente envolvendo e visual. Um clássico indispensável para qualquer idade!
+                    </p>
+                </div>
+            </article>
+
+            <article class="post">
+                <h2 class="post-title">Corte de Espinhos e Rosas</h2>
+                <div class="post-meta">Por Sarah J. Maas &bull; Lido em Março de 2026</div>
+                
+                <div class="rating-container">
+                    <span class="rating-label">Avaliação:</span>
+                    <span class="stars">★★★★☆</span>
+                </div>
+
+                <div class="post-content">
+                    <p>
+                        Uma releitura dark de A Bela e a Fera que te prende do início ao fim. O universo de Prythian é 
+                        muito bem construído e os personagens são cativantes, embora o ritmo no começo seja um pouco lento. 
+                        O final compensa tudo e te deixa doido para ler a continuação.
+                    </p>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Meu Blog de Livros. Criado com HTML e CSS no VSCode.</p>
+    </footer>
+
+</body>
+</html>
